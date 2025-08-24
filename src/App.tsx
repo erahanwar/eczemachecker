@@ -96,42 +96,36 @@ function App() {
             </div>
           </div>
 
-          {/* Mobile Layout */}
+          {/* Mobile Layout - Reverted to Original */}
           <div className="md:hidden space-y-6">
-            <div className="text-center">
-              <h4 className="font-semibold text-gray-900 mb-4 text-lg">Input Ingredients</h4>
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-blue-600 font-bold text-lg">1</span>
-                </div>
-                <p className="text-gray-600 text-sm text-left">
-                  Paste the complete ingredient list using INCI names from the product packaging
-                </p>
+            <div className="text-left">
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                <span className="text-blue-600 font-bold text-lg">1</span>
               </div>
+              <h4 className="font-semibold text-gray-900 mb-2">Input Ingredients</h4>
+              <p className="text-gray-600 text-sm">
+                Paste the complete ingredient list using INCI names from the product packaging
+              </p>
             </div>
             
-            <div className="text-center">
-              <h4 className="font-semibold text-gray-900 mb-4 text-lg">Get Analysis</h4>
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-blue-600 font-bold text-lg">2</span>
-                </div>
-                <p className="text-gray-600 text-sm text-left">
-                  Receive instant feedback with flagged ingredients and safety assessment
-                </p>
+            <div className="text-left">
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                <span className="text-blue-600 font-bold text-lg">2</span>
               </div>
+              <h4 className="font-semibold text-gray-900 mb-2">Get Analysis</h4>
+              <p className="text-gray-600 text-sm">
+                Receive instant feedback with flagged ingredients and safety assessment
+              </p>
             </div>
             
-            <div className="text-center">
-              <h4 className="font-semibold text-gray-900 mb-4 text-lg">Product Recommendations</h4>
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-blue-600 font-bold text-lg">3</span>
-                </div>
-                <p className="text-gray-600 text-sm text-left">
-                  Get personalized recommendations for eczema-safe alternatives
-                </p>
+            <div className="text-left">
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                <span className="text-blue-600 font-bold text-lg">3</span>
               </div>
+              <h4 className="font-semibold text-gray-900 mb-2">Product Recommendations</h4>
+              <p className="text-gray-600 text-sm">
+                Get personalized recommendations for eczema-safe alternatives
+              </p>
             </div>
           </div>
         </div>

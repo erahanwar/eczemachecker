@@ -103,7 +103,7 @@ export function analyzeIngredients(ingredients: string[], skinType: string = 'ge
             inci: ingredient.toUpperCase(),
             reason: 'Fragrances and essential oils can trigger contact dermatitis and worsen eczema symptoms.',
             status: 'avoid',
-            source: 'NEA'
+            source: 'Guidelines'
           });
           isFlaged = true;
         }
@@ -120,7 +120,7 @@ export function analyzeIngredients(ingredients: string[], skinType: string = 'ge
               inci: ingredient.toUpperCase(),
               reason: 'This preservative is a known contact allergen that can cause skin sensitization.',
               status: 'avoid',
-              source: 'NEA'
+              source: 'Guidelines'
             });
             isFlaged = true;
           }
@@ -138,7 +138,7 @@ export function analyzeIngredients(ingredients: string[], skinType: string = 'ge
               inci: ingredient.toUpperCase(),
               reason: 'Dyes and colorants are unnecessary additives that can cause allergic reactions.',
               status: 'avoid',
-              source: 'NEA'
+              source: 'Guidelines'
             });
             isFlaged = true;
           }
@@ -156,7 +156,7 @@ export function analyzeIngredients(ingredients: string[], skinType: string = 'ge
               inci: ingredient.toUpperCase(),
               reason: 'Harsh sulfates can strip the skin barrier and increase irritation in eczema-prone skin.',
               status: 'avoid',
-              source: 'NEA'
+              source: 'Guidelines'
             });
             isFlaged = true;
           }
@@ -174,7 +174,7 @@ export function analyzeIngredients(ingredients: string[], skinType: string = 'ge
               inci: ingredient.toUpperCase(),
               reason: 'Drying alcohols can compromise the skin barrier and increase water loss.',
               status: 'caution',
-              source: 'NEA'
+              source: 'Guidelines'
             });
             isFlaged = true;
           }
@@ -192,7 +192,7 @@ export function analyzeIngredients(ingredients: string[], skinType: string = 'ge
               inci: ingredient.toUpperCase(),
               reason: 'Exfoliating acids can increase skin sensitivity and irritation in compromised skin barriers.',
               status: 'caution',
-              source: 'NEA'
+              source: 'Guidelines'
             });
             isFlaged = true;
           }
@@ -210,7 +210,7 @@ export function analyzeIngredients(ingredients: string[], skinType: string = 'ge
               inci: ingredient.toUpperCase(),
               reason: 'Retinoids can increase skin sensitivity and may worsen inflammation in active eczema.',
               status: 'caution',
-              source: 'NEA'
+              source: 'Guidelines'
             });
             isFlaged = true;
           }
@@ -228,7 +228,7 @@ export function analyzeIngredients(ingredients: string[], skinType: string = 'ge
               inci: ingredient.toUpperCase(),
               reason: 'Chemical sunscreen filters can cause contact dermatitis. Mineral sunscreens are preferred.',
               status: 'caution',
-              source: 'NEA'
+              source: 'Guidelines'
             });
             isFlaged = true;
           }
