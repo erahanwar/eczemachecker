@@ -145,10 +145,8 @@ function App() {
           </div>
         )}
 
-        {/* Product Curations Section - Moved before Guidelines */}
-        {analysisResult && (
-          <ProductCurations />
-        )}
+        {/* Product Curations Section - Now Always Visible */}
+        <ProductCurations />
 
         {/* Guidelines Section */}
         <div className="bg-gradient-to-r from-blue-600 to-green-600 rounded-xl shadow-lg p-8 text-white mb-12">
