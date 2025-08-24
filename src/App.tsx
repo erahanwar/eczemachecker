@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Shield, Info, Heart, User } from 'lucide-react';
 import IngredientInput from './components/IngredientInput';
 import AnalysisResult from './components/AnalysisResult';
+import ProductCurations from './components/ProductCurations';
 import { AnalysisResult as AnalysisResultType } from './types';
 import { analyzeIngredients } from './utils/analyzer';
 
@@ -45,11 +46,11 @@ function App() {
 
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-12">
+        <div className="text-left mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Is Your Skincare <span className="text-blue-600">Eczema-Friendly</span>?
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl">
             Instantly analyze your skincare product ingredients against 
             dermatologist guidelines to ensure they're safe for eczema-prone skin.
           </p>
@@ -62,9 +63,10 @@ function App() {
             <h3 className="text-2xl font-bold text-gray-900">How It Works</h3>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          {/* Desktop Layout */}
+          <div className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-left">
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
                 <span className="text-blue-600 font-bold text-lg">1</span>
               </div>
               <h4 className="font-semibold text-gray-900 mb-2">Input Ingredients</h4>
@@ -73,8 +75,8 @@ function App() {
               </p>
             </div>
             
-            <div className="text-center">
-              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="text-left">
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
                 <span className="text-blue-600 font-bold text-lg">2</span>
               </div>
               <h4 className="font-semibold text-gray-900 mb-2">Get Analysis</h4>
@@ -83,14 +85,53 @@ function App() {
               </p>
             </div>
             
-            <div className="text-center">
-              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="text-left">
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
                 <span className="text-blue-600 font-bold text-lg">3</span>
               </div>
               <h4 className="font-semibold text-gray-900 mb-2">Product Recommendations</h4>
               <p className="text-gray-600 text-sm">
                 Get personalized recommendations for eczema-safe alternatives
               </p>
+            </div>
+          </div>
+
+          {/* Mobile Layout */}
+          <div className="md:hidden space-y-6">
+            <div className="text-center">
+              <h4 className="font-semibold text-gray-900 mb-4 text-lg">Input Ingredients</h4>
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <span className="text-blue-600 font-bold text-lg">1</span>
+                </div>
+                <p className="text-gray-600 text-sm text-left">
+                  Paste the complete ingredient list using INCI names from the product packaging
+                </p>
+              </div>
+            </div>
+            
+            <div className="text-center">
+              <h4 className="font-semibold text-gray-900 mb-4 text-lg">Get Analysis</h4>
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <span className="text-blue-600 font-bold text-lg">2</span>
+                </div>
+                <p className="text-gray-600 text-sm text-left">
+                  Receive instant feedback with flagged ingredients and safety assessment
+                </p>
+              </div>
+            </div>
+            
+            <div className="text-center">
+              <h4 className="font-semibold text-gray-900 mb-4 text-lg">Product Recommendations</h4>
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <span className="text-blue-600 font-bold text-lg">3</span>
+                </div>
+                <p className="text-gray-600 text-sm text-left">
+                  Get personalized recommendations for eczema-safe alternatives
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -110,18 +151,23 @@ function App() {
           </div>
         )}
 
+        {/* Product Curations Section - Moved before Guidelines */}
+        {analysisResult && (
+          <ProductCurations />
+        )}
+
         {/* Guidelines Section */}
         <div className="bg-gradient-to-r from-blue-600 to-green-600 rounded-xl shadow-lg p-8 text-white mb-12">
-          <h3 className="text-2xl font-bold mb-4">Based on Trusted Guidelines</h3>
+          <h3 className="text-2xl font-bold mb-4 text-left">Based on Trusted Guidelines</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
+            <div className="text-left">
               <h4 className="font-semibold mb-2">National Eczema Association (NEA)</h4>
               <p className="text-blue-100 text-sm">
                 Our analysis follows NEA's Ecz-clusion list and recommendations for 
                 ingredients to avoid in eczema-prone skin care products.
               </p>
             </div>
-            <div>
+            <div className="text-left">
               <h4 className="font-semibold mb-2">American Academy of Dermatology (AAD)</h4>
               <p className="text-blue-100 text-sm">
                 We incorporate AAD guidelines for sensitive skin care, including 
@@ -139,7 +185,7 @@ function App() {
                 <User className="w-6 h-6 text-blue-600" />
               </div>
             </div>
-            <div className="ml-4">
+            <div className="ml-4 text-left">
               <p className="text-gray-700 leading-relaxed">
                 Created by <span className="font-semibold text-gray-900">Dr. Erah Anwar, PhD in Skin Regeneration</span>. 
                 With years in the skincare industry, I built this free resource to give families access to science-based skincare information.
