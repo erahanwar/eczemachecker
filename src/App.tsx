@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { Shield, Info, Heart } from 'lucide-react';
-import ProductTypeSelector from './components/ProductTypeSelector';
+import { Shield, Info, Heart, User } from 'lucide-react';
 import IngredientInput from './components/IngredientInput';
 import AnalysisResult from './components/AnalysisResult';
 import { AnalysisResult as AnalysisResultType } from './types';
 import { analyzeIngredients } from './utils/analyzer';
 
 function App() {
-  const [selectedType, setSelectedType] = useState<'cleanser' | 'moisturizer' | 'sunscreen'>('cleanser');
   const [isLoading, setIsLoading] = useState(false);
   const [analysisResult, setAnalysisResult] = useState<AnalysisResultType | null>(null);
 
@@ -17,7 +15,7 @@ function App() {
     // Simulate API call delay
     await new Promise(resolve => setTimeout(resolve, 1500));
     
-    const result = analyzeIngredients(ingredients, selectedType);
+    const result = analyzeIngredients(ingredients, 'general');
     setAnalysisResult(result);
     setIsLoading(false);
   };
@@ -52,16 +50,50 @@ function App() {
             Is Your Skincare <span className="text-blue-600">Eczema-Friendly</span>?
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Instantly analyze your cleanser, moisturizer, or sunscreen ingredients against 
+            Instantly analyze your skincare product ingredients against 
             dermatologist guidelines to ensure they're safe for eczema-prone skin.
           </p>
         </div>
 
-        {/* Product Type Selection */}
-        <ProductTypeSelector
-          selectedType={selectedType}
-          onTypeChange={setSelectedType}
-        />
+        {/* How It Works Section */}
+        <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
+          <div className="flex items-center mb-6">
+            <Info className="w-6 h-6 text-blue-600 mr-3" />
+            <h3 className="text-2xl font-bold text-gray-900">How It Works</h3>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-blue-600 font-bold text-lg">1</span>
+              </div>
+              <h4 className="font-semibold text-gray-900 mb-2">Input Ingredients</h4>
+              <p className="text-gray-600 text-sm">
+                Paste the complete ingredient list using INCI names from the product packaging
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-blue-600 font-bold text-lg">2</span>
+              </div>
+              <h4 className="font-semibold text-gray-900 mb-2">Get Analysis</h4>
+              <p className="text-gray-600 text-sm">
+                Receive instant feedback with flagged ingredients and safety assessment
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-blue-600 font-bold text-lg">3</span>
+              </div>
+              <h4 className="font-semibold text-gray-900 mb-2">Product Recommendations</h4>
+              <p className="text-gray-600 text-sm">
+                Get personalized recommendations for eczema-safe alternatives
+              </p>
+            </div>
+          </div>
+        </div>
 
         {/* Input Section */}
         <IngredientInput
@@ -74,53 +106,12 @@ function App() {
           <div className="mb-12">
             <AnalysisResult
               result={analysisResult}
-              productType={selectedType}
             />
           </div>
         )}
 
-        {/* Info Section */}
-        <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
-          <div className="flex items-center mb-6">
-            <Info className="w-6 h-6 text-blue-600 mr-3" />
-            <h3 className="text-2xl font-bold text-gray-900">How It Works</h3>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-blue-600 font-bold text-lg">1</span>
-              </div>
-              <h4 className="font-semibold text-gray-900 mb-2">Select Product Type</h4>
-              <p className="text-gray-600 text-sm">
-                Choose whether you're checking a cleanser, moisturizer, or sunscreen
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-blue-600 font-bold text-lg">2</span>
-              </div>
-              <h4 className="font-semibold text-gray-900 mb-2">Input Ingredients</h4>
-              <p className="text-gray-600 text-sm">
-                Paste the complete ingredient list using INCI names from the product packaging
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-blue-600 font-bold text-lg">3</span>
-              </div>
-              <h4 className="font-semibold text-gray-900 mb-2">Get Analysis</h4>
-              <p className="text-gray-600 text-sm">
-                Receive instant feedback with flagged ingredients and recommendations
-              </p>
-            </div>
-          </div>
-        </div>
-
         {/* Guidelines Section */}
-        <div className="bg-gradient-to-r from-blue-600 to-green-600 rounded-xl shadow-lg p-8 text-white">
+        <div className="bg-gradient-to-r from-blue-600 to-green-600 rounded-xl shadow-lg p-8 text-white mb-12">
           <h3 className="text-2xl font-bold mb-4">Based on Trusted Guidelines</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
@@ -134,7 +125,24 @@ function App() {
               <h4 className="font-semibold mb-2">American Academy of Dermatology (AAD)</h4>
               <p className="text-blue-100 text-sm">
                 We incorporate AAD guidelines for sensitive skin care, including 
-                recommendations for mineral vs. chemical sunscreen filters.
+                recommendations for fragrance-free and dye-free formulations.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Creator Credentials Section */}
+        <div className="bg-white rounded-xl shadow-lg p-8 mb-12 border-l-4 border-blue-600">
+          <div className="flex items-start">
+            <div className="flex-shrink-0">
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                <User className="w-6 h-6 text-blue-600" />
+              </div>
+            </div>
+            <div className="ml-4">
+              <p className="text-gray-700 leading-relaxed">
+                Created by <span className="font-semibold text-gray-900">Dr. Erah Anwar, PhD in Skin Regeneration</span>. 
+                With years in the skincare industry, I built this free resource to give families access to science-based skincare information.
               </p>
             </div>
           </div>

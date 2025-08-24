@@ -1,5 +1,5 @@
 import { AnalysisResult, Ingredient } from '../types';
-import { findIngredient } from '../data/ingredients';
+import { findIngredient, detectFragranceTerms, detectDyeTerms } from '../data/ingredients';
 
 export const analyzeIngredients = (
   ingredients: string[],
@@ -19,11 +19,33 @@ export const analyzeIngredients = (
         safeIngredients.push(ingredient);
       }
     } else {
-      unknownIngredients.push(ingredientName);
+      // Check for potential fragrance or dye terms in unknown ingredients
+      const isFragrance = detectFragranceTerms(ingredientName);
+      const isDye = detectDyeTerms(ingredientName);
+      
+      if (isFragrance) {
+        flaggedIngredients.push({
+          name: ingredientName,
+          inci: ingredientName,
+          status: 'avoid',
+          reason: 'Potential fragrance ingredient - products must be fragrance-free per AAD guidelines',
+          source: 'AAD Guidelines'
+        });
+      } else if (isDye) {
+        flaggedIngredients.push({
+          name: ingredientName,
+          inci: ingredientName,
+          status: 'avoid',
+          reason: 'Potential dye ingredient - products must be dye-free per AAD guidelines',
+          source: 'AAD Guidelines'
+        });
+      } else {
+        unknownIngredients.push(ingredientName);
+      }
     }
   });
 
-  // Calculate verdict based on NEA Ecz-clusion List
+  // Calculate verdict based on NEA Ecz-clusion List + AAD Guidelines
   const hasAvoidIngredients = flaggedIngredients.some(ing => ing.status === 'avoid');
   const hasCautionIngredients = flaggedIngredients.some(ing => ing.status === 'caution');
 
@@ -41,21 +63,36 @@ export const analyzeIngredients = (
     score = 100;
   }
 
-  // Generate recommendations based on NEA guidelines
+  // Generate recommendations based on NEA + AAD guidelines
   const recommendations: string[] = [];
   
   if (verdict === 'unsuitable') {
-    recommendations.push('This product contains ingredients from the NEA Ecz-clusion List and is not recommended for eczema-prone skin.');
+    const hasFragrance = flaggedIngredients.some(ing => 
+      ing.reason.includes('fragrance') || ing.reason.includes('perfume')
+    );
+    const hasDye = flaggedIngredients.some(ing => 
+      ing.reason.includes('dye')
+    );
+    
+    recommendations.push('This product is not recommended for atopic dermatitis management.');
+    
+    if (hasFragrance) {
+      recommendations.push('AAD guidelines require products to be fragrance-free and perfume-free for atopic dermatitis.');
+    }
+    if (hasDye) {
+      recommendations.push('AAD guidelines require products to be dye-free for atopic dermatitis.');
+    }
+    
     if (productType === 'sunscreen') {
-      recommendations.push('For sunscreen, choose products with only zinc oxide, titanium dioxide, and iron oxides as active ingredients.');
+      recommendations.push('For sunscreen, choose fragrance-free, dye-free products with only zinc oxide, titanium dioxide, and iron oxides as active ingredients.');
     } else {
-      recommendations.push('Look for fragrance-free, hypoallergenic alternatives without the flagged ingredients.');
+      recommendations.push('Look for fragrance-free, perfume-free, dye-free, hypoallergenic alternatives.');
     }
   } else if (verdict === 'caution') {
-    recommendations.push('This product contains ingredients that may cause irritation in some individuals with eczema.');
+    recommendations.push('This product contains ingredients that may cause irritation in some individuals with atopic dermatitis.');
     recommendations.push('Patch test before full use and discontinue if any irritation occurs.');
   } else {
-    recommendations.push('This product appears suitable for eczema-prone skin based on the NEA Ecz-clusion List.');
+    recommendations.push('This product appears suitable for atopic dermatitis based on NEA and AAD guidelines.');
     recommendations.push('Always patch test new products and consult your dermatologist if you have concerns.');
   }
 
@@ -69,10 +106,15 @@ export const analyzeIngredients = (
     );
 
     if (hasPhysicalFilters && !hasChemicalFilters && verdict !== 'unsuitable') {
-      recommendations.push('Excellent choice! This appears to be a 100% physical sunscreen, which is recommended by the NEA for eczema-prone skin.');
+      recommendations.push('Excellent choice! This appears to be a 100% physical sunscreen that meets NEA and AAD requirements.');
     } else if (hasChemicalFilters) {
-      recommendations.push('This sunscreen contains chemical filters. The NEA recommends only 100% physical sunscreens (zinc oxide, titanium dioxide, iron oxides) for eczema-prone skin.');
+      recommendations.push('This sunscreen contains chemical filters. NEA and AAD recommend only 100% physical sunscreens for atopic dermatitis.');
     }
+  }
+
+  // Add AAD compliance note
+  if (verdict === 'suitable') {
+    recommendations.push('This product meets the AAD requirement for fragrance-free, perfume-free, and dye-free formulation.');
   }
 
   return {

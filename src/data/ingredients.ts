@@ -1,21 +1,135 @@
 import { Ingredient } from '../types';
 
-// Official NEA Ecz-clusion List based ingredient database
+// Official NEA Ecz-clusion List + AAD Guidelines based ingredient database
 export const ingredientDatabase: Record<string, Ingredient> = {
-  // Fragrance - must be fragrance free
+  // Fragrance - must be fragrance free per AAD guidelines
   'fragrance': {
     name: 'Fragrance',
     inci: 'Parfum/Fragrance',
     status: 'avoid',
-    reason: 'Products must be fragrance-free for eczema-prone skin',
-    source: 'NEA Ecz-clusion List'
+    reason: 'Products must be fragrance-free for atopic dermatitis management per AAD guidelines',
+    source: 'NEA Ecz-clusion List + AAD Guidelines'
   },
   'parfum': {
     name: 'Fragrance',
     inci: 'Parfum/Fragrance',
     status: 'avoid',
-    reason: 'Products must be fragrance-free for eczema-prone skin',
-    source: 'NEA Ecz-clusion List'
+    reason: 'Products must be fragrance-free for atopic dermatitis management per AAD guidelines',
+    source: 'NEA Ecz-clusion List + AAD Guidelines'
+  },
+  'perfume': {
+    name: 'Perfume',
+    inci: 'Perfume',
+    status: 'avoid',
+    reason: 'Products must be perfume-free for atopic dermatitis management per AAD guidelines',
+    source: 'AAD Guidelines'
+  },
+  'aroma': {
+    name: 'Aroma',
+    inci: 'Aroma',
+    status: 'avoid',
+    reason: 'Fragrance ingredient - products must be fragrance-free per AAD guidelines',
+    source: 'AAD Guidelines'
+  },
+  'essential oil': {
+    name: 'Essential Oil',
+    inci: 'Essential Oil',
+    status: 'avoid',
+    reason: 'Essential oils contain fragrance compounds and must be avoided per AAD guidelines',
+    source: 'AAD Guidelines'
+  },
+  'natural fragrance': {
+    name: 'Natural Fragrance',
+    inci: 'Natural Fragrance',
+    status: 'avoid',
+    reason: 'All fragrances, including natural ones, must be avoided per AAD guidelines',
+    source: 'AAD Guidelines'
+  },
+
+  // Common dyes - must be dye-free per AAD guidelines
+  'fd&c blue no. 1': {
+    name: 'FD&C Blue No. 1',
+    inci: 'CI 42090',
+    status: 'avoid',
+    reason: 'Synthetic dye - products must be dye-free for atopic dermatitis per AAD guidelines',
+    source: 'AAD Guidelines'
+  },
+  'ci 42090': {
+    name: 'FD&C Blue No. 1',
+    inci: 'CI 42090',
+    status: 'avoid',
+    reason: 'Synthetic dye - products must be dye-free for atopic dermatitis per AAD guidelines',
+    source: 'AAD Guidelines'
+  },
+  'fd&c red no. 40': {
+    name: 'FD&C Red No. 40',
+    inci: 'CI 16035',
+    status: 'avoid',
+    reason: 'Synthetic dye - products must be dye-free for atopic dermatitis per AAD guidelines',
+    source: 'AAD Guidelines'
+  },
+  'ci 16035': {
+    name: 'FD&C Red No. 40',
+    inci: 'CI 16035',
+    status: 'avoid',
+    reason: 'Synthetic dye - products must be dye-free for atopic dermatitis per AAD guidelines',
+    source: 'AAD Guidelines'
+  },
+  'fd&c yellow no. 5': {
+    name: 'FD&C Yellow No. 5',
+    inci: 'CI 19140',
+    status: 'avoid',
+    reason: 'Synthetic dye - products must be dye-free for atopic dermatitis per AAD guidelines',
+    source: 'AAD Guidelines'
+  },
+  'ci 19140': {
+    name: 'FD&C Yellow No. 5',
+    inci: 'CI 19140',
+    status: 'avoid',
+    reason: 'Synthetic dye - products must be dye-free for atopic dermatitis per AAD guidelines',
+    source: 'AAD Guidelines'
+  },
+  'fd&c yellow no. 6': {
+    name: 'FD&C Yellow No. 6',
+    inci: 'CI 15985',
+    status: 'avoid',
+    reason: 'Synthetic dye - products must be dye-free for atopic dermatitis per AAD guidelines',
+    source: 'AAD Guidelines'
+  },
+  'ci 15985': {
+    name: 'FD&C Yellow No. 6',
+    inci: 'CI 15985',
+    status: 'avoid',
+    reason: 'Synthetic dye - products must be dye-free for atopic dermatitis per AAD guidelines',
+    source: 'AAD Guidelines'
+  },
+  'fd&c green no. 3': {
+    name: 'FD&C Green No. 3',
+    inci: 'CI 42053',
+    status: 'avoid',
+    reason: 'Synthetic dye - products must be dye-free for atopic dermatitis per AAD guidelines',
+    source: 'AAD Guidelines'
+  },
+  'ci 42053': {
+    name: 'FD&C Green No. 3',
+    inci: 'CI 42053',
+    status: 'avoid',
+    reason: 'Synthetic dye - products must be dye-free for atopic dermatitis per AAD guidelines',
+    source: 'AAD Guidelines'
+  },
+  'd&c red no. 33': {
+    name: 'D&C Red No. 33',
+    inci: 'CI 17200',
+    status: 'avoid',
+    reason: 'Synthetic dye - products must be dye-free for atopic dermatitis per AAD guidelines',
+    source: 'AAD Guidelines'
+  },
+  'ci 17200': {
+    name: 'D&C Red No. 33',
+    inci: 'CI 17200',
+    status: 'avoid',
+    reason: 'Synthetic dye - products must be dye-free for atopic dermatitis per AAD guidelines',
+    source: 'AAD Guidelines'
   },
 
   // Formaldehyde and formaldehyde releasers
@@ -160,6 +274,78 @@ export const ingredientDatabase: Record<string, Ingredient> = {
     status: 'avoid',
     reason: 'Fragrance allergen with very high sensitization potential',
     source: 'NEA Ecz-clusion List'
+  },
+
+  // Essential oils and natural fragrances (expanded per AAD guidelines)
+  'lavender oil': {
+    name: 'Lavender Oil',
+    inci: 'Lavandula Angustifolia Oil',
+    status: 'avoid',
+    reason: 'Essential oil containing fragrance compounds - must be avoided per AAD guidelines',
+    source: 'AAD Guidelines'
+  },
+  'lavandula angustifolia oil': {
+    name: 'Lavender Oil',
+    inci: 'Lavandula Angustifolia Oil',
+    status: 'avoid',
+    reason: 'Essential oil containing fragrance compounds - must be avoided per AAD guidelines',
+    source: 'AAD Guidelines'
+  },
+  'tea tree oil': {
+    name: 'Tea Tree Oil',
+    inci: 'Melaleuca Alternifolia Leaf Oil',
+    status: 'avoid',
+    reason: 'Essential oil containing fragrance compounds - must be avoided per AAD guidelines',
+    source: 'AAD Guidelines'
+  },
+  'melaleuca alternifolia leaf oil': {
+    name: 'Tea Tree Oil',
+    inci: 'Melaleuca Alternifolia Leaf Oil',
+    status: 'avoid',
+    reason: 'Essential oil containing fragrance compounds - must be avoided per AAD guidelines',
+    source: 'AAD Guidelines'
+  },
+  'peppermint oil': {
+    name: 'Peppermint Oil',
+    inci: 'Mentha Piperita Oil',
+    status: 'avoid',
+    reason: 'Essential oil containing fragrance compounds - must be avoided per AAD guidelines',
+    source: 'AAD Guidelines'
+  },
+  'mentha piperita oil': {
+    name: 'Peppermint Oil',
+    inci: 'Mentha Piperita Oil',
+    status: 'avoid',
+    reason: 'Essential oil containing fragrance compounds - must be avoided per AAD guidelines',
+    source: 'AAD Guidelines'
+  },
+  'eucalyptus oil': {
+    name: 'Eucalyptus Oil',
+    inci: 'Eucalyptus Globulus Leaf Oil',
+    status: 'avoid',
+    reason: 'Essential oil containing fragrance compounds - must be avoided per AAD guidelines',
+    source: 'AAD Guidelines'
+  },
+  'eucalyptus globulus leaf oil': {
+    name: 'Eucalyptus Oil',
+    inci: 'Eucalyptus Globulus Leaf Oil',
+    status: 'avoid',
+    reason: 'Essential oil containing fragrance compounds - must be avoided per AAD guidelines',
+    source: 'AAD Guidelines'
+  },
+  'rose oil': {
+    name: 'Rose Oil',
+    inci: 'Rosa Damascena Flower Oil',
+    status: 'avoid',
+    reason: 'Essential oil containing fragrance compounds - must be avoided per AAD guidelines',
+    source: 'AAD Guidelines'
+  },
+  'rosa damascena flower oil': {
+    name: 'Rose Oil',
+    inci: 'Rosa Damascena Flower Oil',
+    status: 'avoid',
+    reason: 'Essential oil containing fragrance compounds - must be avoided per AAD guidelines',
+    source: 'AAD Guidelines'
   },
 
   // Citrus extracts and oils
@@ -469,4 +655,27 @@ export const normalizeIngredientName = (ingredient: string): string => {
 export const findIngredient = (ingredientName: string): Ingredient | null => {
   const normalized = normalizeIngredientName(ingredientName);
   return ingredientDatabase[normalized] || null;
+};
+
+// Enhanced fragrance detection for AAD compliance
+export const detectFragranceTerms = (ingredient: string): boolean => {
+  const fragranceTerms = [
+    'fragrance', 'parfum', 'perfume', 'aroma', 'scent',
+    'essential oil', 'natural fragrance', 'fragrant',
+    'oil', 'extract' // when combined with plant names
+  ];
+  
+  const normalized = normalizeIngredientName(ingredient);
+  return fragranceTerms.some(term => normalized.includes(term));
+};
+
+// Enhanced dye detection for AAD compliance
+export const detectDyeTerms = (ingredient: string): boolean => {
+  const dyeTerms = [
+    'ci ', 'fd&c', 'd&c', 'color', 'dye', 'pigment',
+    'blue', 'red', 'yellow', 'green', 'orange', 'purple'
+  ];
+  
+  const normalized = normalizeIngredientName(ingredient);
+  return dyeTerms.some(term => normalized.includes(term));
 };
