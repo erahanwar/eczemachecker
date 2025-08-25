@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Shield, Info, Heart, User } from 'lucide-react';
+import { Shield, Heart, User } from 'lucide-react';
 import IngredientInput from './components/IngredientInput';
 import AnalysisResult from './components/AnalysisResult';
 import ProductCurations from './components/ProductCurations';
@@ -56,12 +56,30 @@ function App() {
           </p>
         </div>
 
+        {/* Guidelines Section - Moved Above How It Works */}
+        <div className="bg-gradient-to-r from-blue-600 to-green-600 rounded-xl shadow-lg p-8 text-white mb-12">
+          <h3 className="text-2xl font-bold mb-4 text-left">Based on Trusted Guidelines</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="text-left">
+              <h4 className="font-semibold mb-2">National Eczema Association (NEA)</h4>
+              <p className="text-blue-100 text-sm">
+                Our analysis follows NEA's Ecz-clusion list and recommendations for 
+                ingredients to avoid in eczema-prone skin care products.
+              </p>
+            </div>
+            <div className="text-left">
+              <h4 className="font-semibold mb-2">American Academy of Dermatology (AAD)</h4>
+              <p className="text-blue-100 text-sm">
+                We incorporate AAD guidelines for sensitive skin care, including 
+                recommendations for fragrance-free and dye-free formulations.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* How It Works Section */}
         <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
-          <div className="flex items-center mb-6">
-            <Info className="w-6 h-6 text-blue-600 mr-3" />
-            <h3 className="text-2xl font-bold text-gray-900">How It Works</h3>
-          </div>
+          <h3 className="text-2xl font-bold text-gray-900 mb-6">How It Works</h3>
           
           {/* Desktop Layout */}
           <div className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -147,27 +165,6 @@ function App() {
 
         {/* Product Curations Section - Now Always Visible */}
         <ProductCurations />
-
-        {/* Guidelines Section */}
-        <div className="bg-gradient-to-r from-blue-600 to-green-600 rounded-xl shadow-lg p-8 text-white mb-12">
-          <h3 className="text-2xl font-bold mb-4 text-left">Based on Trusted Guidelines</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="text-left">
-              <h4 className="font-semibold mb-2">National Eczema Association (NEA)</h4>
-              <p className="text-blue-100 text-sm">
-                Our analysis follows NEA's Ecz-clusion list and recommendations for 
-                ingredients to avoid in eczema-prone skin care products.
-              </p>
-            </div>
-            <div className="text-left">
-              <h4 className="font-semibold mb-2">American Academy of Dermatology (AAD)</h4>
-              <p className="text-blue-100 text-sm">
-                We incorporate AAD guidelines for sensitive skin care, including 
-                recommendations for fragrance-free and dye-free formulations.
-              </p>
-            </div>
-          </div>
-        </div>
 
         {/* Creator Credentials Section */}
         <div className="bg-white rounded-xl shadow-lg p-8 mb-12 border-l-4 border-blue-600">
