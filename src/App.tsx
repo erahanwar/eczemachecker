@@ -176,7 +176,14 @@ function App() {
             </div>
             <div className="ml-4 text-left">
               <p className="text-gray-700 leading-relaxed">
-                Created by <span className="font-semibold text-gray-900">Dr. Erah Anwar, PhD in Skin Regeneration</span>. 
+                Created by <a 
+                  href="https://www.instagram.com/dr.erahanwar" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="font-semibold text-blue-600 hover:text-blue-800 transition-colors duration-200"
+                >
+                  Dr. Erah Anwar, PhD in Skin Regeneration
+                </a>. 
                 With years in the skincare industry, I built this free resource to give families access to science-based skincare information.
               </p>
             </div>
