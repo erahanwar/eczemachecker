@@ -53,7 +53,7 @@ const ProductCurations: React.FC = () => {
       },
       {
         "name": "Aveeno Baby Dermexa Moisturizing Cream",
-        "img": "https://medias.watsons.com.sg/publishing/WTCSG-89391-side-zoom.jpg?version=1755771923",
+        "img": "https://images.ctfassets.net/e64hqorbppkw/7aN8GJFcXZEzXFPJhIKt4b/a0ed79bd74e301f0925520e698031ab4/image-dermexa-01-01_0-en-sg",
         "links": {
           "shopee": "https://s.shopee.sg/2LOJCrgPYg",
           "amazon": "https://amzn.to/460L7pf"
@@ -64,7 +64,7 @@ const ProductCurations: React.FC = () => {
         "name": "Aveeno Dermexa Fast & Long-Lasting Balm",
         "img": "https://m.media-amazon.com/images/I/71izhCp2FeS._AC_SX679_.jpg",
         "links": {
-          "shopee": "https://s.shopee.sg/30e00NAXDz",
+          "shopee": "https://s.shopee.sg/BJv22Kown",
           "amazon": "https://amzn.to/473wgeR"
         },
         "note": "Clinically tested"
@@ -85,7 +85,7 @@ const ProductCurations: React.FC = () => {
           "shopee": "https://s.shopee.sg/7fPqyB8529",
           "amazon": "https://amzn.to/4fP41Tr"
         },
-        "note": "Clinically tested, Suitable for Babies"
+        "note": "Clinically tested, NEA Seal accepted, Suitable for Babies"
       },
       {
         "name": "Cetaphil PRO AD Derma Skin Restoring Moisturiser",
@@ -94,7 +94,7 @@ const ProductCurations: React.FC = () => {
           "shopee": "https://s.shopee.sg/9UrV9S0IFu",
           "amazon": "https://amzn.to/462TQr3"
         },
-        "note": "Clinically tested, Suitable for Babies"
+        "note": "Clinically tested, NEA Seal accepted, Suitable for Babies"
       },
       {
         "name": "Suu Balm Kids Ceramide Moisturiser",
@@ -156,7 +156,7 @@ const ProductCurations: React.FC = () => {
         "name": "Aveeno Baby Dermexa Moisturizing Wash",
         "img": "https://medias.watsons.com.sg/publishing/WTCSG-89391-side-zoom.jpg?version=1755771923",
         "links": {
-          "shopee": "https://s.shopee.sg/8UywWZu1P2",
+          "shopee": "https://s.shopee.sg/802mMezRBQ",
           "amazon": "https://amzn.to/4lJv5VE"
         },
         "note": "Clinically tested, NEA Seal accepted, Suitable for Babies"
@@ -168,7 +168,7 @@ const ProductCurations: React.FC = () => {
           "shopee": "https://s.shopee.sg/7ATaN7edVP",
           "amazon": "https://amzn.to/4lDk4VB"
         },
-        "note": "Clinically tested"
+        "note": "Clinically tested, NEA Seal accepted"
       },
       {
         "name": "Cetaphil Gentle Skin Cleanser",
@@ -177,7 +177,7 @@ const ProductCurations: React.FC = () => {
           "shopee": "https://s.shopee.sg/4fmFOTcAMj",
           "amazon": "https://amzn.to/4mu3cSu"
         },
-        "note": "Clinically tested"
+        "note": "Clinically tested, NEA Seal accepted"
       },
       {
         "name": "Suu Balm Gentle Moisturising Facial Cleanser",
