@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Shield, Heart, User } from 'lucide-react';
+import { Shield } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import IngredientInput from './components/IngredientInput';
 import AnalysisResult from './components/AnalysisResult';
 import ProductCurations from './components/ProductCurations';
@@ -26,19 +27,45 @@ function App() {
       {/* Header */}
       <header className="bg-white shadow-sm border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <Shield className="w-8 h-8 text-blue-600 mr-3" />
-              <div>
+          {/* Desktop Layout */}
+          <div className="hidden md:flex items-center justify-between">
+            <div className="flex items-start">
+              <div className="flex items-center">
+                <Shield className="w-8 h-8 text-blue-600 mr-3" />
                 <h1 className="text-2xl font-bold text-gray-900">Eczema Checker</h1>
-                <p className="text-sm text-gray-600">Skincare ingredient analysis for sensitive skin</p>
               </div>
             </div>
-            <div className="hidden md:flex items-center space-x-6">
-              <div className="flex items-center text-sm text-gray-600">
-                <Heart className="w-4 h-4 mr-1 text-red-500" />
-                <span>Dermatologist Guidelines</span>
-              </div>
+            <div className="flex items-center">
+              <Link 
+                to="/eczema-101"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200 shadow-sm hover:shadow-md"
+              >
+                <span className="font-medium">Eczema 101</span>
+              </Link>
+            </div>
+          </div>
+
+          {/* Desktop Subheader */}
+          <div className="hidden md:block mt-1">
+            <p className="text-xl text-gray-600">Skincare ingredient analysis for sensitive skin</p>
+          </div>
+
+          {/* Mobile Layout */}
+          <div className="md:hidden">
+            <div className="flex items-center mb-3">
+              <Shield className="w-8 h-8 text-blue-600 mr-2" />
+              <h1 className="text-2xl font-bold text-gray-900">Eczema Checker</h1>
+            </div>
+            <p className="text-base text-gray-600 text-left mb-4">
+              Skincare ingredient analysis for sensitive skin
+            </p>
+            <div className="flex justify-start">
+              <Link 
+                to="/eczema-101"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg transition-colors duration-200 shadow-sm text-sm"
+              >
+                <span className="font-medium">Eczema 101</span>
+              </Link>
             </div>
           </div>
         </div>
@@ -142,7 +169,7 @@ function App() {
               </div>
               <h4 className="font-semibold text-gray-900 mb-2">Product Recommendations</h4>
               <p className="text-gray-600 text-sm">
-                Get personalized recommendations for eczema-safe alternatives
+                Receive instant feedback with flagged ingredients and safety assessment
               </p>
             </div>
           </div>
@@ -170,9 +197,11 @@ function App() {
         <div className="bg-white rounded-xl shadow-lg p-8 mb-12 border-l-4 border-blue-600">
           <div className="flex items-start">
             <div className="flex-shrink-0">
-              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                <User className="w-6 h-6 text-blue-600" />
-              </div>
+              <img 
+                src="https://cdn.chatandbuild.com/users/6844d462a59d4b7ba8993c11/photo-1756625353127-641889726.jpg"
+                alt="Dr. Erah Anwar"
+                className="w-12 h-12 rounded-full object-cover"
+              />
             </div>
             <div className="ml-4 text-left">
               <p className="text-gray-700 leading-relaxed">

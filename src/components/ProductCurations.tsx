@@ -245,7 +245,7 @@ const ProductCurations: React.FC = () => {
     ]
   };
 
-  // Transform data into unified format
+  // Transform data into unified format and sort alphabetically
   const allProducts: Product[] = useMemo(() => {
     const products: Product[] = [];
     
@@ -258,12 +258,13 @@ const ProductCurations: React.FC = () => {
       });
     });
     
-    return products;
+    // Sort products alphabetically by name
+    return products.sort((a, b) => a.name.localeCompare(b.name));
   }, []);
 
   // Filter products based on active filters
   const filteredProducts = useMemo(() => {
-    return allProducts.filter(product => {
+    const filtered = allProducts.filter(product => {
       // Product type filter
       if (activeFilters.productType.length > 0 && !activeFilters.productType.includes(product.category)) {
         return false;
@@ -291,6 +292,9 @@ const ProductCurations: React.FC = () => {
 
       return true;
     });
+
+    // Keep alphabetical sorting for filtered results
+    return filtered.sort((a, b) => a.name.localeCompare(b.name));
   }, [allProducts, activeFilters]);
 
   const handleFilterChange = (filterType: keyof FilterState, value: any) => {
@@ -438,57 +442,119 @@ const ProductCurations: React.FC = () => {
               key={index}
               className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow"
             >
-              <img
-                src={product.img}
-                alt={product.name}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4">
-                <div className="mb-3 text-left">
-                  <h3 className="font-semibold text-gray-900 text-sm mb-1">
-                    {product.name}
-                  </h3>
-                  <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
-                    {product.category.charAt(0).toUpperCase() + product.category.slice(1)}
-                  </span>
-                </div>
+              {/* Desktop Layout - Vertical */}
+              <div className="hidden md:block">
+                <img
+                  src={product.img}
+                  alt={product.name}
+                  className="w-full h-48 object-contain bg-white"
+                />
+                <div className="p-4">
+                  <div className="mb-3 text-left">
+                    <h3 className="font-semibold text-gray-900 text-sm mb-1">
+                      {product.name}
+                    </h3>
+                    <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
+                      {product.category.charAt(0).toUpperCase() + product.category.slice(1)}
+                    </span>
+                  </div>
 
-                <div className="mb-3 text-left">
-                  <div className="flex flex-wrap gap-1">
-                    {getProductTags(product).map((tag, tagIndex) => (
-                      <span
-                        key={tagIndex}
-                        className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded"
+                  <div className="mb-3 text-left">
+                    <div className="flex flex-wrap gap-1">
+                      {getProductTags(product).map((tag, tagIndex) => (
+                        <span
+                          key={tagIndex}
+                          className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex gap-2">
+                    {product.links.shopee && (
+                      <a
+                        href={product.links.shopee}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-orange-500 hover:bg-orange-600 text-white text-xs px-3 py-1 rounded flex items-center transition-colors"
                       >
-                        {tag}
-                      </span>
-                    ))}
+                        Shopee
+                        <ExternalLink className="w-3 h-3 ml-1" />
+                      </a>
+                    )}
+                    {product.links.amazon && (
+                      <a
+                        href={product.links.amazon}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-yellow-500 hover:bg-yellow-600 text-white text-xs px-3 py-1 rounded flex items-center transition-colors"
+                      >
+                        Amazon
+                        <ExternalLink className="w-3 h-3 ml-1" />
+                      </a>
+                    )}
                   </div>
                 </div>
+              </div>
 
-                <div className="flex gap-2">
-                  {product.links.shopee && (
-                    <a
-                      href={product.links.shopee}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-orange-500 hover:bg-orange-600 text-white text-xs px-3 py-1 rounded flex items-center transition-colors"
-                    >
-                      Shopee
-                      <ExternalLink className="w-3 h-3 ml-1" />
-                    </a>
-                  )}
-                  {product.links.amazon && (
-                    <a
-                      href={product.links.amazon}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-yellow-500 hover:bg-yellow-600 text-white text-xs px-3 py-1 rounded flex items-center transition-colors"
-                    >
-                      Amazon
-                      <ExternalLink className="w-3 h-3 ml-1" />
-                    </a>
-                  )}
+              {/* Mobile Layout - Horizontal */}
+              <div className="md:hidden flex p-3 gap-3">
+                <div className="flex-shrink-0">
+                  <img
+                    src={product.img}
+                    alt={product.name}
+                    className="w-20 h-20 object-contain bg-white rounded-lg"
+                  />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="mb-2 text-left">
+                    <h3 className="font-semibold text-gray-900 text-sm mb-1 leading-tight">
+                      {product.name}
+                    </h3>
+                    <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
+                      {product.category.charAt(0).toUpperCase() + product.category.slice(1)}
+                    </span>
+                  </div>
+
+                  <div className="mb-2 text-left">
+                    <div className="flex flex-wrap gap-1">
+                      {getProductTags(product).map((tag, tagIndex) => (
+                        <span
+                          key={tagIndex}
+                          className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex gap-2">
+                    {product.links.shopee && (
+                      <a
+                        href={product.links.shopee}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-orange-500 hover:bg-orange-600 text-white text-xs px-2 py-1 rounded flex items-center transition-colors"
+                      >
+                        Shopee
+                        <ExternalLink className="w-3 h-3 ml-1" />
+                      </a>
+                    )}
+                    {product.links.amazon && (
+                      <a
+                        href={product.links.amazon}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-yellow-500 hover:bg-yellow-600 text-white text-xs px-2 py-1 rounded flex items-center transition-colors"
+                      >
+                        Amazon
+                        <ExternalLink className="w-3 h-3 ml-1" />
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
