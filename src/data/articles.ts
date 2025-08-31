@@ -12,71 +12,79 @@ export const articles: Article[] = [
   {
     title: "What is eczema?",
     slug: "what-is-eczema",
-    content: "Eczema, also known as atopic dermatitis, affects about 204 million people worldwide [1]. It is a long‑term, inflammatory skin condition that makes the skin red, dry, and very itchy. Flares tend to come and go, and severity is assessed as mild, moderate, or severe. Eczema doesn't just affect the skin—it can disrupt sleep, mood, and quality of life. Although it is not contagious, it can run in families and is linked with allergies and asthma [2].\n\nDoctors diagnose eczema by examining the skin, asking about symptoms such as dry, itchy patches, typical locations (like the creases of elbows and knees), and family history of allergies or asthma. Because other skin conditions can look similar, it's a good idea to see a healthcare professional if eczema spreads, becomes very painful, or shows signs of infection.",
+    content: "Eczema, also known as atopic dermatitis, affects an estimated 204 million people worldwide—around 101 million adults and 103 million children [1]. If you are living with eczema, you are far from alone.\n\nIt is a long-term skin condition that makes the skin red, dry, and intensely itchy. These rashes tend to flare and settle over time. The severity of eczema is usually assessed and categorized as mild, moderate, or severe, depending on how much of the skin is affected and how intense the itching becomes [2]. Beyond the skin itself, eczema can seriously affect sleep, mood, and overall quality of life [2].\n\nAlthough eczema is not contagious, it can run in families and be influenced by genetics [3]. This is why doctors often diagnose eczema by examining the skin, asking about symptoms such as dry itchy patches, typical locations like the creases of the elbows and knees, and any family history of allergies or asthma.\n\nBecause other skin conditions can look similar, it is always a good idea to see a healthcare professional if your eczema spreads, becomes very painful, or shows signs of infection (such as yellow crusting, pus, or worsening redness).",
     references: [
       {
-        text: "Tian J, Zhang D, Yang Y, Huang Y, Wang L, Yao X, Lu Q. Global epidemiology of atopic dermatitis: a comprehensive systematic analysis and modelling study. Br J Dermatol. 2024;190(1):55‑61.",
-        link: "https://doi.org/10.1093/bjd/ljad339"
+        text: "Tian J, Zhang D, Yang Y, Huang Y, Wang L, Yao X, Lu Q. Global epidemiology of atopic dermatitis: a comprehensive systematic analysis and modelling study. Br J Dermatol. 2024;190(1):55–61.",
+        link: ""
       },
       {
-        text: "Weidinger S, Novak N. Atopic dermatitis. Lancet. 2016;387(10023):1109‑1122.",
+        text: "Weidinger S, Novak N. Atopic dermatitis. Lancet. 2016;387(10023):1109–1122.",
         link: "https://doi.org/10.1016/S0140-6736(15)00149-X"
+      },
+      {
+        text: "Bieber T. Atopic dermatitis. N Engl J Med. 2008;358(14):1483–1494.",
+        link: "https://doi.org/10.1056/NEJMra074081"
       }
     ]
   },
   {
     title: "What causes eczema?",
     slug: "what-causes-eczema",
-    content: "Eczema has more than one cause. Several things usually add up over time:\n\n1) **Genes**. Eczema often runs in families. If one parent has eczema, allergies, or asthma, a child has a higher chance of developing it; if both parents do, the chance is even higher [1].\n2) **A weaker skin barrier**. When the skin barrier is \"leaky,\" moisture escapes and irritants get in, which can trigger flares. Everyday products—soaps, shampoos, laundry detergents, and cleaning sprays—can strip and weaken the barrier and make flares more likely [1].\n3) **Sensitive, reactive immune system and microbiome changes**. Eczema skin is prone to an imbalance in the skin's microbes and often has more of the bacteria *Staphylococcus aureus*. This, together with a more reactive immune response, drives redness and itching.\n4) **Triggers at home**. A trigger can spark a new flare or worsen existing eczema. Common ones include dust mites, pet dander, some foods, certain fabrics, fragranced detergents, and insufficient or unsuitable skincare.\n5) **Environment and stress**. Sudden changes in temperature or humidity, dry air, pollution, pollen, smoke, sweat—and stress—can all worsen the skin and trigger inflammation.\n\nNot everyone reacts to the same things, and you don't need to remove everything at once. Start with gentle skincare, moisturise daily, and avoid obvious irritants; then work with your clinician to identify personal triggers.",
+    content: "Eczema doesn't have one single cause. Instead, it develops from a combination of genetics, skin barrier weakness, immune changes, and environmental triggers. Here are the five main reasons:\n\n**Genes — it runs in families.**\nIf one parent has eczema, asthma, or allergies, their child has about a 50% chance of developing one of these conditions. If both parents are affected, the likelihood increases to as much as 80% [1].\n\n**Broken skin barrier.**\nMany people with eczema have a weakened skin barrier, often linked to changes in the filaggrin gene. This allows water to escape and lets irritants or allergens enter, which can trigger flare-ups [2].\n\n**Overactive immune system.**\nIn eczema, the immune system reacts too strongly, driving inflammation that causes the redness and intense itching seen during flares [3].\n\n**Triggers at home.**\nEveryday things can worsen eczema, including dust mites, pet dander, certain foods, scratchy fabrics, harsh or fragranced detergents, and unsuitable skincare routines [3].\n\n**Environmental triggers.**\nSudden changes in temperature, humidity, dry air, pollution, pollen, smoke, or sweat can damage the skin barrier and worsen dryness, making flares more likely [3].\n\nIn short, eczema happens when a vulnerable skin barrier meets an overactive immune system, with genetics and everyday triggers combining to cause flare-ups.",
     references: [
       {
-        text: "Irvine AD, McLean WHI, Leung DYM. Filaggrin mutations associated with skin barrier dysfunction and atopic dermatitis. N Engl J Med. 2011;365(14):1315‑1327.",
-        link: "https://doi.org/10.1056/NEJMra1011040"
+        text: "Hoq M, Lee A, Fennessy R, Weidinger S, Flohr C. Atopic dermatitis epidemiology and unmet need in the United States. Clin Exp Allergy. 2025;55(4):409–421.",
+        link: ""
       },
       {
-        text: "Byrd AL, Deming C, Cassidy SKB, et al. Staphylococcus aureus and Staphylococcus epidermidis strain diversity underlying pediatric atopic dermatitis. Sci Transl Med. 2017;9(397):eaal4651.",
-        link: "https://doi.org/10.1126/scitranslmed.aal4651"
+        text: "Palmer CN, Irvine AD, Terron-Kwiatkowski A, et al. Common loss-of-function variants of the epidermal barrier protein filaggrin are a major predisposing factor for atopic dermatitis. Nat Genet. 2006;38(4):441–446.",
+        link: "https://doi.org/10.1038/ng1767"
       },
       {
-        text: "Arndt J, Smith N, Tausk F. Stress and atopic dermatitis. Curr Allergy Asthma Rep. 2008;8(4):312‑317.",
-        link: "https://doi.org/10.1007/s11882-008-0050-6"
+        text: "Bieber T. Atopic dermatitis. N Engl J Med. 2008;358(14):1483–1494.",
+        link: "https://doi.org/10.1056/NEJMra074081"
       }
     ]
   },
   {
-    title: "Is there a cure for eczema?",
-    slug: "is-there-a-cure-for-eczema",
-    content: "Short answer: **No**. There is no definitive cure for eczema. The goal of care is to control symptoms, reduce flare‑ups, and improve comfort and sleep. What works best depends on how mild, moderate, or severe the eczema is. Daily moisturising and gentle cleansing form the base. During flares, anti‑inflammatory creams calm the skin. For more severe eczema, extra steps—such as wet wraps, very dilute bleach baths, light therapy, or specialist medicines—may be needed [1‑3].\n\nResearch is moving fast, and newer targeted treatments are helping many people with severe eczema. While these do not \"cure\" eczema, they can make day‑to‑day life much easier.",
+    title: "What triggers eczema flare-ups?",
+    slug: "what-triggers-eczema-flare-ups",
+    content: "If you live with eczema, you know that flare-ups can seem to appear out of nowhere. In reality, certain triggers often set them off. Identifying and avoiding your personal triggers can make a big difference. Here are the most common ones:\n\n**Irritants at home.**\nEveryday products such as soaps, shampoos, laundry detergents, and cleaning sprays can strip and weaken the skin barrier, making it easier for eczema to flare [1].\n\n**Allergens.**\nFor some people, exposure to dust mites, pet dander, pollen, or certain foods can worsen eczema. In Singapore, the most common allergy trigger is house dust mites and their droppings. About one in three people with eczema who are allergic to dust mites will see their symptoms get worse when exposed [2].\n\n**Imbalance in the skin microbiome.**\nEczema skin is known to have an imbalance in its microbiome, with an increased amount of harmful bacteria such as Staphylococcus aureus. This can make flares more frequent, more severe, and slower to heal [3].\n\n**Stress.**\nStress doesn't cause eczema, but it can trigger a flare or make it worse. Stress affects both the immune system and the skin barrier, leading to more itch and inflammation [4].\n\n**Climate and environment.**\nCold, dry winters and hot, sweaty summers are both challenging. Sudden changes in temperature, low humidity, smoke, or pollution can all irritate the skin and start a flare [2,3].\n\nNo two people have the exact same triggers. Keeping a symptom diary can help you track what sparks your flares and guide changes in your daily routine.",
     references: [
       {
-        text: "Weidinger S, Novak N. Atopic dermatitis. Lancet. 2016;387(10023):1109‑1122.",
+        text: "Weidinger S, Novak N. Atopic dermatitis. Lancet. 2016;387(10023):1109–1122.",
         link: "https://doi.org/10.1016/S0140-6736(15)00149-X"
       },
       {
-        text: "Simpson EL, Paller AS, Siegfried EC, et al. Efficacy and Safety of Dupilumab in Adolescents With Uncontrolled Moderate to Severe Atopic Dermatitis: A Phase 3 Randomized Clinical Trial. JAMA Dermatol. 2020;156(1):44‑56.",
-        link: "https://doi.org/10.1001/jamadermatol.2019.3336"
+        text: "Bieber T. Atopic dermatitis. N Engl J Med. 2008;358(14):1483–1494.",
+        link: "https://doi.org/10.1056/NEJMra074081"
       },
       {
-        text: "Pennal A, Campione EA, King A, Weinstein M. Atopic Dermatitis Part 2: Management. Pediatr Rev. 2025;46(8):425‑436.",
-        link: "https://doi.org/10.1542/pir.2024-006587"
+        text: "Ong PY, Leung DY. Bacterial and viral infections in atopic dermatitis: a comprehensive review. Clin Rev Allergy Immunol. 2016;51(3):329–337.",
+        link: "https://doi.org/10.1007/s12016-016-8548-5"
+      },
+      {
+        text: "Arndt J, Smith N, Tausk F. Stress and atopic dermatitis. Curr Allergy Asthma Rep. 2008;8(4):312–317.",
+        link: "https://doi.org/10.1007/s11882-008-0050-7"
       }
     ]
   },
   {
     title: "How is eczema treated?",
     slug: "how-is-eczema-treated",
-    content: "Living with eczema can feel overwhelming, but it can usually be managed with the right care. Treatment depends on whether eczema is **mild, moderate, or severe**, and it often works best when taken step by step [1,2].\n\n**Step 1: Daily skin care – the foundation.** Apply fragrance‑free moisturisers at least once or twice daily (always after bathing), use gentle non‑soap cleansers, and avoid irritants like harsh detergents, strong fragrances, or rough fabrics such as wool.\n\n**Step 2: Treat flares early.** When skin turns red, itchy, and inflamed, anti‑inflammatory creams (steroid or non‑steroid options prescribed by your doctor) help calm the skin and prevent worsening.\n\n**Step 3: Extra help for severe eczema.** Wet wrap therapy (moisturiser and medicated cream under a damp then dry layer) boosts absorption and soothes itch. Very dilute bleach baths can reduce skin bacteria and lower infection risk [3].\n\n**Step 4: Specialist treatments.** If eczema stays severe despite these steps, options like clinic‑based light therapy or stronger medicines that work on the whole immune system may be considered by a dermatologist.\n\nMost people do best with consistent moisturising and early flare control, adding the next step only if needed.",
+    content: "Living with eczema can feel overwhelming at times, but the good news is that it can usually be managed with the right care. Treatment depends on whether eczema is mild, moderate, or severe, and it often works best when taken step by step [1,2].\n\n**Step 1: Daily skin care – the foundation**\nThe first and most important step is to repair and protect the skin barrier. This means:\n• Applying fragrance-free moisturisers at least once or twice a day, and always after bathing.\n• Using gentle, non-soap cleansers that don't strip the skin.\n• Avoiding common irritants like harsh detergents, strong fragrances, or rough fabrics such as wool.\n\nThese small, everyday habits make a big difference over time.\n\n**Step 2: Treat flare-ups quickly**\nEven with the best care, flare-ups can still happen. When the skin turns red, itchy, and inflamed, anti-inflammatory creams are often needed. These may be steroid creams or non-steroid options prescribed by a doctor. Using them early can help calm the skin before it gets worse.\n\n**Step 3: Extra help for severe eczema**\nWhen eczema is more severe, it can be especially tough on comfort, confidence, and sleep. In these cases, doctors may recommend additional treatments to bring relief:\n• **Wet wrap therapy**: Moisturiser and medicated cream are applied, then the skin is wrapped in a damp layer of bandages or clothing, with a dry layer on top. This locks in moisture, boosts absorption of treatment, and soothes the itch.\n• **Bleach baths**: Very dilute bleach baths (a tiny amount of household bleach in a full tub of water) can help reduce bacteria on the skin and lower the risk of infection [3].\n\n**Step 4: Specialist treatments**\nFor people whose eczema stays severe despite these steps, other options may be needed:\n• Light therapy (phototherapy), using controlled ultraviolet light in a clinic.\n• Stronger medicines that work on the whole body's immune system, prescribed by dermatology specialists.\n\n**The bottom line**\nEczema doesn't have a quick fix, but it can be managed. For most people, consistent moisturising and treating flares early make the biggest difference. With extra steps like wet wraps or bleach baths when needed, and specialist support for more severe cases, eczema can usually be controlled so that skin feels calmer and life feels a little easier.",
     references: [
       {
-        text: "Weidinger S, Novak N. Atopic dermatitis. Lancet. 2016;387(10023):1109‑1122.",
+        text: "Weidinger S, Novak N. Atopic dermatitis. Lancet. 2016;387(10023):1109–1122.",
         link: "https://doi.org/10.1016/S0140-6736(15)00149-X"
       },
       {
-        text: "Sidbury R, Davis DM, Cohen DE, et al. Guidelines of care for the management of atopic dermatitis: phototherapy and systemic agents. J Am Acad Dermatol. 2014;71(2):327‑349.",
+        text: "Sidbury R, Davis DM, Cohen DE, et al. Guidelines of care for the management of atopic dermatitis: section 3. Management and treatment with phototherapy and systemic agents. J Am Acad Dermatol. 2014;71(2):327–349.",
         link: "https://doi.org/10.1016/j.jaad.2014.03.030"
       },
       {
-        text: "Pennal A, Campione EA, King A, Weinstein M. Atopic Dermatitis Part 2: Management. Pediatr Rev. 2025;46(8):425‑436.",
+        text: "Pennal A, Campione EA, King A, Weinstein M. Atopic Dermatitis Part 2: Management. Pediatr Rev. 2025;46(8):425–436.",
         link: "https://doi.org/10.1542/pir.2024-006587"
       }
     ]
@@ -84,15 +92,39 @@ export const articles: Article[] = [
   {
     title: "Can eczema be cured?",
     slug: "can-eczema-be-cured",
-    content: "Eczema cannot be cured, but it can be controlled. For many children, symptoms improve with age; for others, eczema continues into the teen years or adulthood. A large review suggests a substantial proportion—around one in three—have persistent disease over time [1].\n\nTreatment keeps improving. Newer targeted medicines are expanding options for people with severe eczema and have helped many live more comfortably [2]. Even so, the day‑to‑day basics—moisturising, avoiding irritants, and treating flares early—remain the backbone of care.",
+    content: "At present, there is no permanent cure for eczema [1,2]. This is because the condition is driven by a combination of genes, a weakened skin barrier, and changes in the immune system, which cannot yet be reversed.\n\nThat said, many children \"grow out\" of eczema as they get older. Research shows that some children experience long periods of remission, but for others, symptoms may return in adulthood [3]. For families, this means that while the condition may improve over time, eczema should still be monitored and managed carefully.\n\nThe future of eczema care is encouraging. Scientists are exploring how to prevent eczema in babies by strengthening the skin barrier early in life, while an expanding pipeline of new treatments is being developed to target the disease more precisely. These include therapies that act directly on immune pathways and approaches that aim to restore balance to the skin microbiome [4]. Such research may not provide a cure yet, but it is moving us closer to longer-lasting solutions.\n\nSo while eczema cannot be cured at present, there is reason for optimism. With today's treatments, most people can keep their symptoms under control and live well—and with ongoing research, tomorrow may bring breakthroughs that offer even greater hope.\n\n**Can eczema be triggered by stress?**\n\nYes, stress can trigger eczema flare-ups or make existing symptoms worse [5,6]. Stress affects the body in many ways, including the skin. When you are under pressure, your body produces stress hormones like cortisol. In small amounts, cortisol helps the body respond to challenges, but when stress is ongoing, these hormones can disrupt the skin barrier and immune system, making eczema more likely to flare.\n\nMany people notice that their eczema feels itchier or redder during stressful periods, such as exams, work deadlines, or major life changes. The itching itself can also cause more stress, creating a cycle of flare-ups and frustration [7].\n\nManaging stress is an important part of eczema care. A recent survey of 120 dermatologists and psychologists identified the top five recommendations to improve wellbeing:\n• Optimize sleep\n• Meditate or use relaxation techniques\n• Go outdoors and move\n• Take time off or a break from routine\n• Reconnect with loved ones [8]\n\nThese strategies do not replace medical treatment for eczema, but they can reduce stress and break the itch–scratch cycle, supporting healthier skin in the long run.",
     references: [
       {
-        text: "Kim JP, Chao LX, Simpson EL, Silverberg JI. Persistence of atopic dermatitis: a systematic review and meta‑analysis. J Am Acad Dermatol. 2016;75(4):681‑687.e11.",
+        text: "Weidinger S, Novak N. Atopic dermatitis. Lancet. 2016;387(10023):1109–1122.",
+        link: "https://doi.org/10.1016/S0140-6736(15)00149-X"
+      },
+      {
+        text: "Bieber T. Atopic dermatitis. N Engl J Med. 2008;358(14):1483–1494.",
+        link: "https://doi.org/10.1056/NEJMra074081"
+      },
+      {
+        text: "Kim JP, Chao LX, Simpson EL, Silverberg JI. Persistence of atopic dermatitis (AD): A systematic review and meta-analysis. J Am Acad Dermatol. 2016 Oct;75(4):681-687.e11.",
         link: "https://doi.org/10.1016/j.jaad.2016.05.028"
       },
       {
-        text: "Bieber T. Atopic dermatitis: an expanding therapeutic pipeline for a complex disease. Nat Rev Drug Discov. 2022;21:21‑40.",
-        link: "https://doi.org/10.1038/s41573-021-00266-6"
+        text: "Bieber T. Atopic dermatitis: an expanding therapeutic pipeline for a complex disease. Nat Rev Drug Discov. 2022;21:21–40.",
+        link: ""
+      },
+      {
+        text: "Arndt J, Smith N, Tausk F. Stress and atopic dermatitis. Curr Allergy Asthma Rep. 2008;8:312–317.",
+        link: ""
+      },
+      {
+        text: "Kimyai-Asadi A, Usman A. The role of psychological stress in skin disease. J Cutan Med Surg. 2001;5(2):140–145.",
+        link: "https://doi.org/10.1177/120347540100500208"
+      },
+      {
+        text: "Linnet J, Jemec GB. Anxiety level and severity of skin condition predict symptoms in patients with atopic dermatitis. Clin Exp Dermatol. 2001;26(4):632–635.",
+        link: ""
+      },
+      {
+        text: "Anwar SS, Apolinar MA, Ma L. Perception, understanding, and association between psychological stress and skin aging: Quantitative surveys of Asian women aged 18–34 years, dermatologists, and psychologists in China and Japan. J Cosmet Dermatol. 2023;22(8):2297–2307.",
+        link: ""
       }
     ]
   }
