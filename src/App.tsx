@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import IngredientInput from './components/IngredientInput';
@@ -6,6 +6,7 @@ import AnalysisResult from './components/AnalysisResult';
 import ProductCurations from './components/ProductCurations';
 import { AnalysisResult as AnalysisResultType } from './types';
 import { analyzeIngredients } from './utils/analyzer';
+import { trackIngredientAnalysis } from './utils/analytics';
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
@@ -19,6 +20,10 @@ function App() {
     
     const result = analyzeIngredients(ingredients, 'general');
     setAnalysisResult(result);
+    
+    // Track analytics
+    trackIngredientAnalysis(ingredients.length, result.flaggedIngredients.length);
+    
     setIsLoading(false);
   };
 

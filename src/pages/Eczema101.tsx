@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Shield, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { articles } from '../data/articles';
 import ArticleAccordion from '../components/ArticleAccordion';
+import { trackArticleView } from '../utils/analytics';
 
 function Eczema101() {
+  useEffect(() => {
+    // Track page view for Eczema 101
+    trackArticleView('Eczema 101 Page Load');
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
       {/* Header */}

@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, ExternalLink } from 'lucide-react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 import { Article } from '../data/articles';
+import { trackArticleView } from '../utils/analytics';
 
 interface ArticleAccordionProps {
   articles: Article[];
 }
 
 function ArticleAccordion({ articles }: ArticleAccordionProps) {
-  const [expandedArticle, setExpandedArticle] = useState<string | null>(null);
+  const [openArticle, setOpenArticle] = useState<number | null>(null);
 
-  const toggleArticle = (slug: string) => {
-    setExpandedArticle(expandedArticle === slug ? null : slug);
+  const toggleArticle = (index: number) => {
+    const newOpenArticle = openArticle === index ? null : index;
+    setOpenArticle(newOpenArticle);
+    
+    // Track article view when opened
+    if (newOpenArticle !== null) {
+      trackArticleView(articles[index].title);
+    }
   };
 
   const formatContent = (content: string) => {
@@ -18,31 +25,49 @@ function ArticleAccordion({ articles }: ArticleAccordionProps) {
     const paragraphs = content.split('\n\n');
     
     return paragraphs.map((paragraph, index) => {
-      // Handle numbered lists
-      if (paragraph.includes('1)') || paragraph.includes('2)') || paragraph.includes('3)') || paragraph.includes('4)') || paragraph.includes('5)')) {
+      // Handle bullet points
+      if (paragraph.includes('•')) {
         const lines = paragraph.split('\n');
+        const beforeBullets = lines.filter(line => !line.trim().startsWith('•'));
+        const bulletPoints = lines.filter(line => line.trim().startsWith('•'));
+        
         return (
           <div key={index} className="mb-4">
-            {lines.map((line, lineIndex) => {
-              if (line.match(/^\d+\)/)) {
-                // Extract the number and content
-                const parts = line.split(') ');
-                const number = parts[0] + ')';
-                const content = parts.slice(1).join(') ');
-                
-                // Handle bold text in content
-                const formattedContent = content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-                
+            {beforeBullets.map((line, lineIndex) => (
+              <p key={lineIndex} className="mb-2 text-gray-700 leading-relaxed">
+                {formatTextWithBold(line)}
+              </p>
+            ))}
+            {bulletPoints.length > 0 && (
+              <ul className="list-none space-y-2 ml-0">
+                {bulletPoints.map((bullet, bulletIndex) => (
+                  <li key={bulletIndex} className="text-gray-700 leading-relaxed">
+                    <span className="text-blue-600 mr-2">•</span>
+                    {formatTextWithBold(bullet.replace('•', '').trim())}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        );
+      }
+      
+      // Handle step headers (like "Step 1:", "Step 2:", etc.)
+      if (paragraph.includes('**Step ') && paragraph.includes('**')) {
+        const parts = paragraph.split('**');
+        return (
+          <div key={index} className="mb-4">
+            {parts.map((part, partIndex) => {
+              if (part.includes('Step ') && partIndex % 2 === 1) {
                 return (
-                  <p key={lineIndex} className="mb-2 text-left">
-                    <span className="font-semibold text-blue-600">{number}</span>{' '}
-                    <span dangerouslySetInnerHTML={{ __html: formattedContent }} />
-                  </p>
+                  <h4 key={partIndex} className="font-bold text-blue-600 mb-2">
+                    {part}
+                  </h4>
                 );
-              } else if (line.trim()) {
+              } else if (part.trim()) {
                 return (
-                  <p key={lineIndex} className="mb-2 text-left">
-                    {line}
+                  <p key={partIndex} className="text-gray-700 leading-relaxed">
+                    {formatTextWithBold(part)}
                   </p>
                 );
               }
@@ -52,105 +77,78 @@ function ArticleAccordion({ articles }: ArticleAccordionProps) {
         );
       }
       
-      // Handle step-by-step content
-      if (paragraph.includes('**Step')) {
-        const lines = paragraph.split('\n');
-        return (
-          <div key={index} className="mb-4">
-            {lines.map((line, lineIndex) => {
-              if (line.includes('**Step')) {
-                const formattedLine = line.replace(/\*\*(.*?)\*\*/g, '<strong class="text-blue-600">$1</strong>');
-                return (
-                  <p key={lineIndex} className="mb-2 text-left">
-                    <span dangerouslySetInnerHTML={{ __html: formattedLine }} />
-                  </p>
-                );
-              } else if (line.trim()) {
-                return (
-                  <p key={lineIndex} className="mb-2 text-left ml-4">
-                    {line}
-                  </p>
-                );
-              }
-              return null;
-            })}
-          </div>
-        );
-      }
-      
-      // Handle regular paragraphs with bold text and italics
-      const formattedParagraph = paragraph
-        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-        .replace(/\*(.*?)\*/g, '<em>$1</em>');
-      
+      // Regular paragraphs
       return (
-        <p key={index} className="mb-4 text-left leading-relaxed" dangerouslySetInnerHTML={{ __html: formattedParagraph }} />
+        <p key={index} className="mb-4 text-gray-700 leading-relaxed">
+          {formatTextWithBold(paragraph)}
+        </p>
       );
     });
   };
 
+  const formatTextWithBold = (text: string) => {
+    // Handle bold text marked with **
+    const parts = text.split('**');
+    return parts.map((part, index) => {
+      if (index % 2 === 1) {
+        return <strong key={index} className="font-semibold">{part}</strong>;
+      }
+      return part;
+    });
+  };
+
   return (
-    <div className="space-y-4 w-full">
-      {articles.map((article) => {
-        const isExpanded = expandedArticle === article.slug;
-        
-        return (
-          <div key={article.slug} className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden w-full">
-            {/* Article Header */}
-            <button
-              onClick={() => toggleArticle(article.slug)}
-              className="w-full px-6 md:px-8 lg:px-12 py-4 text-left hover:bg-gray-50 transition-colors duration-200 flex items-center justify-between"
-            >
-              <h3 className="text-lg md:text-xl font-bold text-gray-900 leading-tight pr-4">
-                {article.title}
-              </h3>
-              <div className="flex-shrink-0">
-                {isExpanded ? (
-                  <ChevronUp className="w-5 h-5 text-gray-500" />
-                ) : (
-                  <ChevronDown className="w-5 h-5 text-gray-500" />
+    <div className="space-y-4">
+      <h3 className="text-2xl font-bold text-gray-900 mb-6 text-left">Educational Articles</h3>
+      
+      {articles.map((article, index) => (
+        <div key={index} className="border border-gray-200 rounded-lg overflow-hidden">
+          <button
+            onClick={() => toggleArticle(index)}
+            className="w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors duration-200 flex items-center justify-between"
+          >
+            <h4 className="text-lg font-semibold text-gray-900">{article.title}</h4>
+            {openArticle === index ? (
+              <ChevronUp className="w-5 h-5 text-gray-500" />
+            ) : (
+              <ChevronDown className="w-5 h-5 text-gray-500" />
+            )}
+          </button>
+          
+          {openArticle === index && (
+            <div className="px-6 py-6 bg-white">
+              <div className="prose max-w-none">
+                {formatContent(article.content)}
+                
+                {article.references && article.references.length > 0 && (
+                  <div className="mt-8 pt-6 border-t border-gray-200">
+                    <h5 className="text-sm font-semibold text-gray-900 mb-3">References</h5>
+                    <ol className="text-xs text-gray-600 space-y-2">
+                      {article.references.map((ref, refIndex) => (
+                        <li key={refIndex} className="leading-relaxed">
+                          <span className="font-medium">[{refIndex + 1}]</span>{' '}
+                          {ref.link ? (
+                            <a 
+                              href={ref.link} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="text-blue-600 hover:text-blue-800 underline"
+                            >
+                              {ref.text}
+                            </a>
+                          ) : (
+                            <span>{ref.text}</span>
+                          )}
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
                 )}
               </div>
-            </button>
-
-            {/* Article Content */}
-            {isExpanded && (
-              <div className="px-6 md:px-8 lg:px-12 pb-6 border-t border-gray-100">
-                <div className="pt-4">
-                  <div className="prose prose-gray max-w-none text-sm md:text-base leading-relaxed">
-                    {formatContent(article.content)}
-                  </div>
-
-                  {/* References */}
-                  {article.references && article.references.length > 0 && (
-                    <div className="mt-8 pt-6 border-t border-gray-200">
-                      <h4 className="text-base md:text-lg font-semibold text-gray-900 mb-4 text-left">References</h4>
-                      <div className="space-y-3">
-                        {article.references.map((ref, index) => (
-                          <div key={index} className="text-xs md:text-sm text-gray-600 text-left">
-                            <span className="font-medium">[{index + 1}]</span>{' '}
-                            <span>{ref.text}</span>
-                            {ref.link && (
-                              <a
-                                href={ref.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="ml-2 text-blue-600 hover:text-blue-800 inline-flex items-center"
-                              >
-                                <ExternalLink className="w-3 h-3" />
-                              </a>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
-            )}
-          </div>
-        );
-      })}
+            </div>
+          )}
+        </div>
+      ))}
     </div>
   );
 }
