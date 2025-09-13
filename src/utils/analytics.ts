@@ -1,38 +1,41 @@
-// Google Analytics utility functions
-declare global {
-  interface Window {
-    gtag: (...args: any[]) => void;
-  }
-}
-
-// Track page views for different routes
-export const trackPageView = (pagePath: string, pageTitle: string) => {
+// Analytics utility functions
+export const trackPageView = (pageName: string) => {
   if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('config', 'G-VN3BNHEDRN', {
-      page_path: pagePath,
-      page_title: pageTitle,
+    window.gtag('event', 'page_view', {
+      page_title: pageName,
+      page_location: window.location.href
     });
   }
 };
 
-// Track custom events
-export const trackEvent = (eventName: string, parameters?: Record<string, any>) => {
+export const trackIngredientAnalysis = (ingredientCount: number, flaggedCount: number) => {
   if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('event', eventName, parameters);
+    window.gtag('event', 'ingredient_analysis', {
+      event_category: 'Analysis',
+      event_label: 'Ingredient Check',
+      ingredient_count: ingredientCount,
+      flagged_count: flaggedCount
+    });
   }
 };
 
-// Track ingredient analysis
-export const trackIngredientAnalysis = (ingredientCount: number, flaggedCount: number) => {
-  trackEvent('ingredient_analysis', {
-    ingredient_count: ingredientCount,
-    flagged_ingredients: flaggedCount,
-  });
+export const trackArticleView = (articleTitle: string) => {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', 'article_view', {
+      event_category: 'Content',
+      event_label: articleTitle
+    });
+  }
 };
 
-// Track article views
-export const trackArticleView = (articleTitle: string) => {
-  trackEvent('article_view', {
-    article_title: articleTitle,
-  });
+export const trackPOEMAssessment = (score: number, severity: string, isCaregiver: boolean) => {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', 'poem_assessment', {
+      event_category: 'Assessment',
+      event_label: 'POEM Completed',
+      poem_score: score,
+      severity_level: severity,
+      is_caregiver: isCaregiver
+    });
+  }
 };

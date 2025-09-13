@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react';
 import { Shield, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { articles } from '../data/articles';
-import ArticleAccordion from '../components/ArticleAccordion';
-import { trackArticleView } from '../utils/analytics';
+import POEMAssessment from '../components/POEMAssessment';
+import { trackPageView } from '../utils/analytics';
 
-function Eczema101() {
+function POEMAssessmentPage() {
   useEffect(() => {
-    // Track page view for Eczema 101
-    trackArticleView('Eczema 101 Page Load');
+    // Track page view for Eczema Score
+    trackPageView('Eczema Score Page');
   }, []);
 
   return (
@@ -60,26 +59,59 @@ function Eczema101() {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="w-full mx-auto px-4 sm:px-6 lg:px-12 py-12">
-        <div className="text-left mb-12">
-          <div className="mb-4">
-            <h2 className="text-4xl font-bold text-gray-900">
-              Eczema <span className="text-blue-600">101</span>
-            </h2>
-            <p className="text-xl text-gray-600 mt-2">
-              Evidence-based educational articles about eczema and skincare
+      {/* Main Content */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="text-left mb-8">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            Eczema <span className="text-blue-600">Score</span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl">
+            Assess your eczema severity using the validated Patient Oriented Eczema Measure (POEM) 
+            from the University of Nottingham.
+          </p>
+        </div>
+
+        {/* Assessment Tool */}
+        <div className="mb-12">
+          <POEMAssessment />
+        </div>
+
+        {/* About POEM Section */}
+        <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
+          <h3 className="text-2xl font-bold text-gray-900 mb-6 text-left">About This Assessment</h3>
+          <div className="prose prose-gray max-w-none text-left">
+            <p className="text-gray-700 mb-4">
+              This eczema score assessment is based on the Patient Oriented Eczema Measure (POEM), a validated 
+              questionnaire developed by researchers at the University of Nottingham to assess the impact 
+              of atopic eczema on patients and their families.
             </p>
+            <p className="text-gray-700 mb-4">
+              POEM focuses on patient-relevant aspects of eczema, measuring symptoms that matter 
+              most to people living with the condition. It covers seven key areas: itching, sleep 
+              disturbance, bleeding, weeping/oozing, cracking, flaking, and dryness/roughness.
+            </p>
+            <p className="text-gray-700 mb-6">
+              The tool is widely used by healthcare professionals and researchers worldwide to 
+              monitor eczema severity and treatment effectiveness over time.
+            </p>
+            
+            {/* Copyright and Permission Section */}
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-6">
+              <h4 className="font-semibold text-gray-900 mb-2">Copyright & Permission</h4>
+              <p className="text-sm text-gray-700 mb-2">
+                <strong>Copyright:</strong> The POEM questionnaire is copyrighted by The University of Nottingham. 
+                All rights reserved.
+              </p>
+              <p className="text-sm text-gray-700">
+                <strong>Permission:</strong> Permission has been requested from The University of Nottingham 
+                for the non-commercial use of this questionnaire in this educational tool.
+              </p>
+            </div>
           </div>
         </div>
 
-        {/* Articles Accordion */}
-        <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 lg:p-12 mb-12">
-          <ArticleAccordion articles={articles} />
-        </div>
-
         {/* Creator Credentials Section */}
-        <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 lg:p-12 mb-12 border-l-4 border-blue-600 max-w-5xl">
+        <div className="bg-white rounded-xl shadow-lg p-8 mb-12 border-l-4 border-blue-600">
           <div className="flex items-start">
             <div className="flex-shrink-0">
               <img 
@@ -90,7 +122,7 @@ function Eczema101() {
             </div>
             <div className="ml-4 text-left">
               <p className="text-gray-700 leading-relaxed">
-                Written by <a 
+                Implemented by <a 
                   href="https://www.instagram.com/dr.erahanwar" 
                   target="_blank" 
                   rel="noopener noreferrer"
@@ -98,7 +130,8 @@ function Eczema101() {
                 >
                   Dr. Erah Anwar, PhD in Skin Regeneration
                 </a>. 
-                These articles provide science-based information to help you better understand eczema and make informed skincare decisions.
+                This eczema score assessment tool uses the official University of Nottingham POEM version to provide 
+                accurate eczema severity evaluation for both patients and caregivers.
               </p>
             </div>
           </div>
@@ -127,4 +160,4 @@ function Eczema101() {
   );
 }
 
-export default Eczema101;
+export default POEMAssessmentPage;

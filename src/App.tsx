@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Shield } from 'lucide-react';
+import { Shield, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import IngredientInput from './components/IngredientInput';
 import AnalysisResult from './components/AnalysisResult';
@@ -40,7 +40,14 @@ function App() {
                 <h1 className="text-2xl font-bold text-gray-900">Eczema Checker</h1>
               </div>
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center space-x-4">
+              <Link 
+                to="/poem-assessment"
+                className="flex items-center bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200 shadow-sm hover:shadow-md"
+              >
+                <FileText className="w-4 h-4 mr-2" />
+                <span className="font-medium">Eczema Score</span>
+              </Link>
               <Link 
                 to="/eczema-101"
                 className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200 shadow-sm hover:shadow-md"
@@ -64,7 +71,14 @@ function App() {
             <p className="text-base text-gray-600 text-left mb-4">
               Skincare ingredient analysis for sensitive skin
             </p>
-            <div className="flex justify-start">
+            <div className="flex justify-start space-x-2">
+              <Link 
+                to="/poem-assessment"
+                className="flex items-center bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg transition-colors duration-200 shadow-sm text-sm"
+              >
+                <FileText className="w-3 h-3 mr-1" />
+                <span className="font-medium">Eczema Score</span>
+              </Link>
               <Link 
                 to="/eczema-101"
                 className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg transition-colors duration-200 shadow-sm text-sm"
@@ -88,6 +102,41 @@ function App() {
           </p>
         </div>
 
+        {/* Quick Actions */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <div className="bg-white rounded-xl shadow-lg p-6 border-l-4 border-blue-600">
+            <h3 className="text-xl font-bold text-gray-900 mb-2 text-left">Ingredient Analysis</h3>
+            <p className="text-gray-600 mb-4 text-left">
+              Check if your skincare products contain ingredients that may trigger eczema flare-ups.
+            </p>
+            <div className="text-left">
+              <span className="inline-block bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">
+                Start below ↓
+              </span>
+            </div>
+          </div>
+          
+          <Link 
+            to="/poem-assessment"
+            className="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-600 hover:shadow-xl transition-shadow duration-200"
+          >
+            <div className="flex items-start justify-between">
+              <div className="flex-1">
+                <h3 className="text-xl font-bold text-gray-900 mb-2 text-left">Eczema Score</h3>
+                <p className="text-gray-600 mb-4 text-left">
+                  Evaluate your eczema severity using the validated University of Nottingham tool.
+                </p>
+                <div className="text-left">
+                  <span className="inline-block bg-green-100 text-green-800 text-sm px-3 py-1 rounded-full">
+                    Get Score →
+                  </span>
+                </div>
+              </div>
+              <FileText className="w-8 h-8 text-green-600 ml-4" />
+            </div>
+          </Link>
+        </div>
+
         {/* Guidelines Section - Moved Above How It Works */}
         <div className="bg-gradient-to-r from-blue-600 to-green-600 rounded-xl shadow-lg p-8 text-white mb-12">
           <h3 className="text-2xl font-bold mb-4 text-left">Based on Trusted Guidelines</h3>
@@ -100,10 +149,10 @@ function App() {
               </p>
             </div>
             <div className="text-left">
-              <h4 className="font-semibold mb-2">American Academy of Dermatology (AAD)</h4>
+              <h4 className="font-semibold mb-2">University of Nottingham</h4>
               <p className="text-blue-100 text-sm">
-                We incorporate AAD guidelines for sensitive skin care, including 
-                recommendations for fragrance-free and dye-free formulations.
+                Our eczema score uses the validated Patient Oriented Eczema Measure (POEM) 
+                for accurate severity evaluation.
               </p>
             </div>
           </div>
