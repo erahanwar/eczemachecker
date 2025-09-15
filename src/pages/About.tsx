@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, ArrowLeft, Heart, Users, BookOpen, Award } from 'lucide-react';
+import { Shield, ArrowLeft, Heart, Users, BookOpen, Award, Instagram, Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 function About() {
@@ -67,50 +67,94 @@ function About() {
         <div className="bg-gradient-to-r from-blue-600 to-green-600 rounded-xl shadow-lg p-8 text-white mb-12">
           <div className="flex items-start mb-6">
             <Heart className="w-8 h-8 text-white mr-4 flex-shrink-0 mt-1" />
-            <div>
-              <h3 className="text-2xl font-bold mb-4 text-left">Our Mission</h3>
-              <p className="text-lg leading-relaxed text-left">
-                Healthcare shouldn't be a privilege. Millions of people worldwide struggle with eczema and sensitive skin 
-                conditions but lack access to dermatological expertise. Eczema Checker bridges this gap by providing 
-                science-based, accessible skincare education and tools that empower individuals to make informed decisions 
-                about their skin health.
-              </p>
-            </div>
+            <h3 className="text-2xl font-bold mb-4 text-left">Our Mission</h3>
           </div>
+          <p className="text-lg leading-relaxed text-left">
+            Healthcare shouldn't be a privilege. Millions of people worldwide struggle with eczema and sensitive skin 
+            conditions but lack access to dermatological expertise. Eczema Checker bridges this gap by providing 
+            science-based, accessible skincare education and tools that empower individuals to make informed decisions 
+            about their skin health.
+          </p>
         </div>
 
         {/* Creator Profile */}
         <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8 text-left">Meet the Creator</h3>
-          
-          <div className="text-left">
-            <div className="flex items-start mb-6">
-              <img 
-                src="https://cdn.chatandbuild.com/users/6844d462a59d4b7ba8993c11/photo-1756625353127-641889726.jpg"
-                alt="Dr. Erah Anwar"
-                className="w-20 h-20 rounded-full object-cover mr-6 flex-shrink-0"
-              />
-              <div>
-                <h4 className="text-xl font-bold text-gray-900 mb-2">Dr. Erah Anwar</h4>
-                <p className="text-blue-600 font-semibold mb-2">PhD in Skin Regeneration</p>
+          {/* Desktop Layout */}
+          <div className="hidden md:block">
+            <div className="flex items-center justify-between mb-8">
+              <h3 className="text-2xl font-bold text-gray-900 text-left">Meet Dr. Erah Anwar</h3>
+              <div className="flex items-center space-x-3">
                 <a 
                   href="https://www.instagram.com/dr.erahanwar" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:text-blue-800 transition-colors duration-200 text-sm"
+                  className="flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-200 bg-blue-50 hover:bg-blue-100 px-3 py-2 rounded-lg"
                 >
-                  @dr.erahanwar
+                  <Instagram className="w-4 h-4 mr-2" />
+                  <span className="text-sm font-medium">Instagram</span>
+                </a>
+                <a 
+                  href="https://www.linkedin.com/in/erah-anwar/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-200 bg-blue-50 hover:bg-blue-100 px-3 py-2 rounded-lg"
+                >
+                  <Linkedin className="w-4 h-4 mr-2" />
+                  <span className="text-sm font-medium">LinkedIn</span>
                 </a>
               </div>
             </div>
             
-            <p className="text-gray-700 leading-relaxed">
-              Dr. Anwar specializes in leading scientific and medical affairs strategy for global skincare brands 
-              across the Asia Pacific region. With a deep understanding of skin biology and years of experience 
-              in the skincare industry, she created Eczema Checker as a free resource to democratize access to 
-              evidence-based skincare information. Recognized with prestigious scholarships throughout her academic 
-              career, including as an A*STAR scholar, Dr. Anwar is committed to ensuring that everyone, regardless 
-              of their access to dermatological care, can make informed decisions about their skin health.
+            <div className="text-left">
+              <div className="flex items-start mb-6">
+                <img 
+                  src="https://cdn.chatandbuild.com/users/6844d462a59d4b7ba8993c11/photo-1756625353127-641889726.jpg"
+                  alt="Dr. Erah Anwar"
+                  className="w-20 h-20 rounded-full object-cover mr-6 flex-shrink-0"
+                />
+                <div className="flex-1">
+                  <p className="text-gray-700 leading-relaxed">
+                    A mom of three with a PhD in skin regeneration, she knows eczema personally - both for herself and her children. She has led scientific and medical affairs for global skincare brands across Asia Pacific and was recognized with scholarships throughout her academic journey. Blending professional expertise with lived experience, she created Eczema Checker to make evidence-based skincare simple and accessible for every family.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile Layout */}
+          <div className="md:hidden">
+            <h3 className="text-xl font-bold text-gray-900 text-left mb-4">Meet Dr. Erah Anwar</h3>
+            
+            <div className="flex items-start mb-6">
+              <img 
+                src="https://cdn.chatandbuild.com/users/6844d462a59d4b7ba8993c11/photo-1756625353127-641889726.jpg"
+                alt="Dr. Erah Anwar"
+                className="w-20 h-20 rounded-full object-cover mr-4 flex-shrink-0"
+              />
+              <div className="flex flex-col space-y-2">
+                <a 
+                  href="https://www.instagram.com/dr.erahanwar" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-200 bg-blue-50 hover:bg-blue-100 px-3 py-2 rounded-lg"
+                >
+                  <Instagram className="w-4 h-4 mr-2" />
+                  <span className="text-sm font-medium">Instagram</span>
+                </a>
+                <a 
+                  href="https://www.linkedin.com/in/erah-anwar/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-200 bg-blue-50 hover:bg-blue-100 px-3 py-2 rounded-lg"
+                >
+                  <Linkedin className="w-4 h-4 mr-2" />
+                  <span className="text-sm font-medium">LinkedIn</span>
+                </a>
+              </div>
+            </div>
+            
+            <p className="text-gray-700 leading-relaxed text-left">
+              A mom of three with a PhD in skin regeneration, she knows eczema personally - both for herself and her children. She has led scientific and medical affairs for global skincare brands across Asia Pacific and was recognized with scholarships throughout her academic journey. Blending professional expertise with lived experience, she created Eczema Checker to make evidence-based skincare simple and accessible for every family.
             </p>
           </div>
         </div>
@@ -171,7 +215,7 @@ function About() {
               <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
                 <Award className="w-6 h-6 text-purple-600" />
               </div>
-              <h4 className="font-semibold text-gray-900 mb-2">POEM Assessment</h4>
+              <h4 className="font-semibold text-gray-900 mb-2">Eczema Self-Assessment</h4>
               <p className="text-gray-600 text-sm">
                 Validated eczema severity assessment tool from the University of Nottingham for accurate self-evaluation.
               </p>
