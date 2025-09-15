@@ -70,36 +70,39 @@ const POEMAssessment: React.FC = () => {
           </p>
         </div>
 
-        <div className="max-w-md space-y-4">
+        <div className="max-w-4xl">
           <h3 className="text-lg font-semibold text-gray-900 text-left mb-6">
             Who is this assessment for?
           </h3>
           
-          <button
-            onClick={() => handleCaregiverSelection(false)}
-            className="w-full p-6 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all duration-200 text-left"
-          >
-            <div className="flex items-center">
-              <User className="w-8 h-8 text-blue-600 mr-4" />
-              <div>
-                <h4 className="font-semibold text-gray-900">For Myself</h4>
-                <p className="text-sm text-gray-600">Self-assessment of my own eczema symptoms</p>
+          {/* Mobile: Vertical Stack, Desktop: Side by Side */}
+          <div className="flex flex-col md:flex-row gap-4">
+            <button
+              onClick={() => handleCaregiverSelection(false)}
+              className="flex-1 p-6 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all duration-200 text-left"
+            >
+              <div className="flex items-center">
+                <User className="w-8 h-8 text-blue-600 mr-4" />
+                <div>
+                  <h4 className="font-semibold text-gray-900">For Myself</h4>
+                  <p className="text-sm text-gray-600">Self-assessment of my own eczema symptoms</p>
+                </div>
               </div>
-            </div>
-          </button>
+            </button>
 
-          <button
-            onClick={() => handleCaregiverSelection(true)}
-            className="w-full p-6 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all duration-200 text-left"
-          >
-            <div className="flex items-center">
-              <Baby className="w-8 h-8 text-blue-600 mr-4" />
-              <div>
-                <h4 className="font-semibold text-gray-900">For My Child</h4>
-                <p className="text-sm text-gray-600">Caregiver assessment of child's eczema symptoms</p>
+            <button
+              onClick={() => handleCaregiverSelection(true)}
+              className="flex-1 p-6 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all duration-200 text-left"
+            >
+              <div className="flex items-center">
+                <Baby className="w-8 h-8 text-blue-600 mr-4" />
+                <div>
+                  <h4 className="font-semibold text-gray-900">For My Child</h4>
+                  <p className="text-sm text-gray-600">Caregiver assessment of child's eczema symptoms</p>
+                </div>
               </div>
-            </div>
-          </button>
+            </button>
+          </div>
         </div>
 
         <div className="mt-8 p-4 bg-blue-50 border border-blue-200 rounded-lg">

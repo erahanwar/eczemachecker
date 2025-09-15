@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Shield, FileText } from 'lucide-react';
+import { Shield, FileText, Info } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import IngredientInput from './components/IngredientInput';
 import AnalysisResult from './components/AnalysisResult';
@@ -54,6 +54,13 @@ function App() {
               >
                 <span className="font-medium">Eczema 101</span>
               </Link>
+              <Link 
+                to="/about"
+                className="flex items-center bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200 shadow-sm hover:shadow-md"
+              >
+                <Info className="w-4 h-4 mr-2" />
+                <span className="font-medium">About</span>
+              </Link>
             </div>
           </div>
 
@@ -84,6 +91,13 @@ function App() {
                 className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg transition-colors duration-200 shadow-sm text-sm"
               >
                 <span className="font-medium">Eczema 101</span>
+              </Link>
+              <Link 
+                to="/about"
+                className="flex items-center bg-gray-600 hover:bg-gray-700 text-white px-2 py-2 rounded-lg transition-colors duration-200 shadow-sm text-sm"
+              >
+                <Info className="w-3 h-3 mr-1" />
+                <span className="font-medium">About</span>
               </Link>
             </div>
           </div>
